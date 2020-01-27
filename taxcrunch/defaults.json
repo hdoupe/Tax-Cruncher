@@ -344,9 +344,22 @@
             }
         ],
         "validators": {
-            "range": {
-                "min": 0,
-                "max": 9e+99
+            "when": {
+                "param": "sage",
+                "is": {"less_than": 65},
+                "then": {
+                    "when": {
+                        "param": "page",
+                        "is": {"less_than": 65},
+                        "then": {
+                            "range": {"min": 0, "max": 0}
+                        },
+                        "otherwise": {}
+                    }
+                },
+                "otherwise": {
+                    "range": {"min": 0, "max": 9e99}
+                }
             }
         }
     },
@@ -461,7 +474,7 @@
                     "Qualified Dividends",
                     "Interest Received",
                     "Pensions",
-                    "Gross Social Security Beneifts",
+                    "Gross SFocial Security Beneifts",
                     "Real Estate Taxes Paid",
                     "Mortgage"
                 ]
